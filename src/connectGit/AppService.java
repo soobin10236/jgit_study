@@ -31,9 +31,9 @@ public class AppService {
 		
 		GitService gitService = new GitService();
 		
-		gitService.callGitService();
+//		gitService.callGitService();
 		
-//		gitService.apiTestGet();
+		gitService.apiTestGet();
 
 		
 			
