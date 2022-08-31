@@ -32,12 +32,11 @@ import common.util;
 public class GitService {
 	
 	util util = new util();
-	Properties prop = util.readProperties("config/git.properties");
+	Properties prop = util.readProperties("config/local.properties");
 	
 	
-	public static final String localPath = "C:\\Users\\LSB\\Desktop\\test_repo";
+	public static final String localPath = "C:\\Users\\soobin\\Desktop\\test_repo";
 	public static final String username = "tnqls7742";
-//	public static final String password = "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";
 	String password = prop.getProperty("password");
 	
 	public void callGitService() throws IOException, GitAPIException {
