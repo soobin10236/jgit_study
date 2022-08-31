@@ -25,19 +25,15 @@ import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
 
 public class AppService {
 	
-	public static final String localPath = "C:\\Users\\LSB\\Desktop\\test_repo";
-	public static final String username = "tnqls7742";
-	public static final String password = "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";
-	
 	public static void main(String[] args) throws Exception {
 		
 		System.out.println("started");
 		
 		GitService gitService = new GitService();
 		
-//		gitService.callGitService();
+		gitService.callGitService();
 		
-		gitService.apiTestGet();
+//		gitService.apiTestGet();
 
 		
 			
