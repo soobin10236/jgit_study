@@ -21,6 +21,8 @@ import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 import org.eclipse.jgit.transport.CredentialsProvider;
 import org.eclipse.jgit.transport.UsernamePasswordCredentialsProvider;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 
 public class AppService {
@@ -33,7 +35,25 @@ public class AppService {
 		
 //		gitService.callGitService();
 		
-		gitService.apiTestGet();
+//		gitService.apiTestGet();
+//		gitService.apiTestPost();
+//		gitService.apiTestPut();
+		
+		JSONArray PRList = gitService.getPullRequestList();
+		if(PRList.length() < 1) {
+			System.out.println("풀리퀘스트 목록이 존재하지 않음");
+		} else {
+			for(int i = 0; i < PRList.length(); i++) {
+				JSONObject jsonObj = (JSONObject) PRList.get(i);
+				
+				System.out.println("===========================================");
+				System.out.println("repository : " + new JSONObject(new JSONObject(jsonObj.optString("head")).optString("repo")).optString("full_name"));
+				System.out.println("title : " + jsonObj.optString("title"));
+				System.out.println("number : " + jsonObj.optString("number"));
+				System.out.println("===========================================");
+				gitService.apiTestPut(jsonObj.optString("number"));
+			}	
+		}
 
 		
 			
